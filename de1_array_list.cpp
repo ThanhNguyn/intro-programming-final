@@ -109,7 +109,7 @@ int main() {
                 break;
             }
             case 5: {
-                if (individuals.empty()) { // <-- THÊM
+                if (individuals.empty()) {
                 cout << "Danh sach rong!\n";
                 break;
             }
