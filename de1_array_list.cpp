@@ -91,6 +91,10 @@ int main() {
                 break;
             }
             case 4: {
+                if (individuals.empty()) {
+                cout << "Danh sach rong!\n";
+                break;
+            }
                 int max=0;
                 individual maxD = individuals.front();
                 for (individual& d : individuals) {
@@ -105,6 +109,10 @@ int main() {
                 break;
             }
             case 5: {
+                if (individuals.empty()) { // <-- THÊM
+                cout << "Danh sach rong!\n";
+                break;
+            }
                 int min;
                 bool first = true;
                 individual minD;
@@ -120,6 +128,7 @@ int main() {
                 }
 
                 minD.output();
+                break;
             }
 
             case 6: {
