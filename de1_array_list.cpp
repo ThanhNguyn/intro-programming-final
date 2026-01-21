@@ -1,6 +1,5 @@
 #include <iostream>
 #include <list>
-#include <algorithm>
 using namespace std;
 class individual {
 private:
@@ -9,22 +8,21 @@ private:
     int num;
     int id;
 public:
-    int getid() {
+    int getid() const {
         return id;
     }
     void input(int index) {
-        id=index;
-        cin.ignore();
         cout<<"ma khach hang: "<<endl;
         cin>>id;
         cout<<"Nhap ten khach hang #"<<index+1<<": "<<endl;
-        cin>>name;
+        getline(cin >> ws, name); //ws=white space, khi dung \n se ko bi rong
         cout<<"Nhap so dien thoai cua khach hang #"<<index+1<<": "<<endl;
         cin>>phone;
         cout<<"Nhap tong gia tri mua hang cua khach hang #"<<index+1<<": "<<endl;
         cin>>num;
     }
     void output() {
+        cout << " Ma khach hang: " <<id<<endl;
         cout<<" Ten khach hang: "<<name<<endl;
         cout<<" so dien thoai: "<<phone<<endl;
         cout<<" tong gia tri mua hang: "<<num<<endl;
@@ -77,6 +75,7 @@ int main() {
                     if (a.getid()==id) {
                         a.output();
                         found=true;
+                        break;
                     }
                 }
                 if (!found) {
@@ -95,11 +94,11 @@ int main() {
                 cout << "Danh sach rong!\n";
                 break;
             }
-                int max=0;
                 individual maxD = individuals.front();
+                int maxVal = maxD.max();
                 for (individual& d : individuals) {
-                    if (d.max()>max) {
-                        max=d.max();
+                    if (d.max()>maxVal) {
+                        maxVal=d.max();
                         maxD=d;
                     }
                 }
