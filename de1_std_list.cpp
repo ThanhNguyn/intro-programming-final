@@ -3,7 +3,7 @@
 using namespace std;
 class individual {
 private:
-    int phone;
+    string phone;
     string name;
     int num;
     int id;
@@ -34,7 +34,7 @@ public:
         return num;
     }
 
-    string getName() {
+    string getName() const{
         return name;
     }
 
